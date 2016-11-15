@@ -21,7 +21,7 @@ use Symfony\Component\HttpFoundation\Response;
 abstract class ApiBaseController extends Controller
 {
     /**
-     * @return Response
+     * @return Response 401
      * @throws \InvalidArgumentException
      */
     protected function unauthorizedResponse()
@@ -32,13 +32,35 @@ abstract class ApiBaseController extends Controller
     }
 
     /**
-     * @return Response
+     * @return Response 404
+     * @throws \InvalidArgumentException
+     */
+    protected function notFoundResponse()
+    {
+        return $this->createApiResponse([
+            'message' => StatusCodesHelper::NOT_FOUND_MESSAGE ,
+        ] , StatusCodesHelper::NOT_FOUND_CODE);
+    }
+
+    /**
+     * @return Response 409
+     * @throws \InvalidArgumentException
+     */
+    protected function invalidParametersResponse()
+    {
+        return $this->createApiResponse([
+            'message' => StatusCodesHelper::INVALID_PARAMETERS_MESSAGE ,
+        ] , StatusCodesHelper::INVALID_PARAMETERS_CODE);
+    }
+
+    /**
+     * @return Response 403
      * @throws \InvalidArgumentException
      */
     protected function accessDeniedResponse()
     {
         return $this->createApiResponse([
-            'message' => StatusCodesHelper::ACCESS_DENIED_MESSAGE,
+            'message' => StatusCodesHelper::ACCESS_DENIED_MESSAGE ,
         ] , StatusCodesHelper::ACCESS_DENIED_CODE);
     }
 
@@ -59,27 +81,29 @@ abstract class ApiBaseController extends Controller
     }
 
     /**
-     * @param $data
+     * @param        $data
      * @param string $format
+     *
      * @return mixed
      */
     protected function serialize($data , $format = 'json')
     {
         return $this->get('jms_serializer')
-            ->serialize($data , $format);
+                    ->serialize($data , $format);
     }
 
     /**
      * Return's 201 code if create = true, else 200
      *
      * @param bool $create
+     *
      * @return int
      */
     protected function getCreateUpdateStatusCode($create)
     {
-        if($create){
+        if ($create) {
             return StatusCodesHelper::CREATED_CODE;
-        }else{
+        } else {
             return StatusCodesHelper::SUCCESSFUL_CODE;
         }
     }
