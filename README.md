@@ -11,5 +11,7 @@ Installation:
 Just install the requirements and register the bundles in your AppKernel
 
 new Nelmio\ApiDocBundle\NelmioApiDocBundle() ,
+
 new JMS\SerializerBundle\JMSSerializerBundle(),
+
 new \Igsem\APIBundle\IgsemAPIBundle() ,
