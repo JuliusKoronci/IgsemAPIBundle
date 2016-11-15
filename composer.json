@@ -2,6 +2,7 @@
   "name": "igsem/api-bundle",
   "description": "A simple bundle to help Symfony API development. Provides a BaseController, BaseTest and a StatusCode helper",
   "type": "symfony-bundle",
+  "homepage": "https://github.com/JuliusKoronci/IgsemAPIBundle",
   "require": {
     "php": ">=7.0.7",
     "symfony/framework-bundle": "~2.3|~3.0",
