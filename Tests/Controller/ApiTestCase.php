@@ -249,6 +249,8 @@ abstract class ApiTestCase extends WebTestCase implements ControllerTestInterfac
     }
 
     /**
+     * Get The Symfony Client, if Client already exists, return the exiting one
+     *
      * @param bool $new
      *
      * @return bool|\Symfony\Bundle\FrameworkBundle\Client
