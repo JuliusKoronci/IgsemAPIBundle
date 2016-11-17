@@ -271,7 +271,7 @@ interface ControllerInterface
      *      204 ="The Entity was successfully deleted",
      *      401 ="Unauthorized request",
      *      403 ="Access denied",
-     *      404 ="Not found Tag",
+     *      404 ="Not found Entity",
      *  })
      *
      * @param int $id
