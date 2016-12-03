@@ -42,7 +42,7 @@ class StatusCodesHelper
 
 
     const INVALID_JWT_TOKEN_MESSAGE = 'Invalid JWT Token';
-    const INVALID_JWT_TOKEN_CODE = 500;
+    const INVALID_JWT_TOKEN_CODE = 401;
 
 
 }
